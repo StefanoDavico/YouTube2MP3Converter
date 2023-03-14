@@ -23,8 +23,8 @@ app.get("/",(req,res)=>{
     res.render("index");
 });
 app.post("/convert-mp3", async (req,res)=>{
-    const videoId = req.body.videoID;
-
+    var videoId = req.body.videoID;
+    videoId=videoId.slice(videoId.indexOf('=') + 1)
     if(
         videoId === undefined ||
         videoId === "" ||
