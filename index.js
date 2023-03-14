@@ -24,11 +24,15 @@ app.get("/",(req,res)=>{
 });
 app.post("/convert-mp3", async (req,res)=>{
     var videoId = req.body.videoID;
+<<<<<<< HEAD
 
 videoId=videoId.slice(videoId.indexOf('=') + 1)
 
 console.log(videoId);
 
+=======
+    videoId=videoId.slice(videoId.indexOf('=') + 1)
+>>>>>>> a086260b52f7baf3110b36ce6926fd9a7cb35939
     if(
         videoId === undefined ||
         videoId === "" ||
@@ -36,6 +40,8 @@ console.log(videoId);
     ){
         return res.render("index",{success:false, message:"Please enter a video ID"});
     }else{
+        //get videoId from the url after '='
+        videoId=videoId.slice(videoId.indexOf('=') + 1)
         const fetchAPI = await fetch(`https://youtube-mp36.p.rapidapi.com/dl?id=${videoId}`,
         {
             "method" : "GET",
